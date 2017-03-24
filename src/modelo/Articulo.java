@@ -1,6 +1,6 @@
 package modelo;
 
-public class Producto {
+public class Articulo {
 
 	private int id;
 	private String nombre;
@@ -50,7 +50,7 @@ public class Producto {
 	}
 
 	// Constructor
-	public Producto(int id, String nombre, String proveedor, double precio, int existencias) {
+	public Articulo(int id, String nombre, String proveedor, double precio, int existencias) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -61,7 +61,7 @@ public class Producto {
 
 	// Constructor vacio
 
-	public Producto() {
+	public Articulo() {
 		super();
 	}
 

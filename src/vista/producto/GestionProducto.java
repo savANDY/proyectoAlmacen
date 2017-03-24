@@ -15,14 +15,14 @@ public class GestionProducto extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
-	private ControladorProducto controladorProducto;
+	private ControladorArticulo controladorProducto;
 
 	// Getters y Setters
-	public ControladorProducto getControladorProducto() {
+	public ControladorArticulo getControladorProducto() {
 		return controladorProducto;
 	}
 
-	public void setControladorProducto(ControladorProducto controladorProducto) {
+	public void setControladorProducto(ControladorArticulo controladorProducto) {
 		this.controladorProducto = controladorProducto;
 	}
 

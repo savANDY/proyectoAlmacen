@@ -13,7 +13,7 @@ public class Main {
 				ControladorCliente controladorCliente = new ControladorCliente();
 				ControladorDetallesPedido controladorDetallesPedido = new ControladorDetallesPedido();
 				ControladorPedido controladorPedido = new ControladorPedido();
-				ControladorProducto controladorProducto = new ControladorProducto();
+				ControladorArticulo controladorProducto = new ControladorArticulo();
 
 				ModeloCliente modeloCliente = new ModeloCliente();
 				ModeloDetallesPedido modeloDetallesPedido = new ModeloDetallesPedido();
@@ -30,9 +30,10 @@ public class Main {
 				// Crear ventanas como variables locales del main
 				GestionCliente gestionCliente = new GestionCliente(ventanaPrincipal, true);
 				gestionCliente.setControladorCliente(controladorCliente);
-				
 				controladorCliente.setGestionCliente(gestionCliente);
 				
+				VerClientes verClientes = new VerClientes(gestionCliente, true);
+				controladorCliente.setVerClientes(verClientes);
 				//abrir la ventana principal
 				ventanaPrincipal.setVisible(true);
 				

@@ -27,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
 	private ControladorCliente controladorCliente;
 	private ControladorDetallesPedido controladorDetallesPedido;
 	private ControladorPedido controladorPedido;
-	private ControladorProducto controladorProducto;
+	private ControladorArticulo controladorProducto;
 	private final JLabel label = new JLabel("BackGround");
 
 	// Getters y Setters
@@ -59,11 +59,11 @@ public class VentanaPrincipal extends JFrame {
 		this.controladorPedido = controladorPedido;
 	}
 	
-	public ControladorProducto getControladorProducto() {
+	public ControladorArticulo getControladorProducto() {
 		return controladorProducto;
 	}
 
-	public void setControladorProducto(ControladorProducto controladorProducto) {
+	public void setControladorProducto(ControladorArticulo controladorProducto) {
 		this.controladorProducto = controladorProducto;
 	}
 

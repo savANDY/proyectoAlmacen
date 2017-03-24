@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.*;
 import vista.VentanaPrincipal;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GestionCliente extends JDialog {
 
@@ -32,27 +34,23 @@ public class GestionCliente extends JDialog {
 	public GestionCliente(VentanaPrincipal parent, boolean modal) {
 
 		super(parent, modal);
+		setTitle("Gestion de Clientes");
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(parent);;
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+		contentPanel.setLayout(null);
+		
+		JButton btnVerClientes = new JButton("Ver clientes");
+		btnVerClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				controladorCliente.abrirVerClientes();
+				
 			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
+		});
+		btnVerClientes.setBounds(40, 50, 117, 27);
+		contentPanel.add(btnVerClientes);
 	}
-
 }
