@@ -32,7 +32,7 @@ public class ModeloCliente extends Conectar {
 				cliente.setDireccion(rs.getString(3));
 				cliente.setCodPostal(rs.getString(4));
 				cliente.setTelefono(rs.getString(5));
-				System.out.println(cliente.getNombre());
+//				System.out.println(cliente.getNombre());
 				clientes.add(cliente);
 			}
 			return clientes;

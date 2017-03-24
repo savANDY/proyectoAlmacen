@@ -55,15 +55,16 @@ public class ControladorCliente {
 		ArrayList<Cliente> clientes;
 
 		try {
+			
 			clientes = modeloCliente.seleccionarTodos();
 			verClientes.rellenarTabla(clientes);
 
 			verClientes.setVisible(true);
 
 		} catch (Exception e) {
-			//JOptionPane.showMessageDialog(null, "ERROR AL SELECCIONAR CLIENTES");
-			e.printStackTrace();
-			e.getMessage();
+			JOptionPane.showMessageDialog(null, "ERROR AL SELECCIONAR CLIENTES");
+//			e.printStackTrace();
+//			e.getMessage();
 		}
 	}
 

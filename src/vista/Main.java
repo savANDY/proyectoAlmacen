@@ -8,6 +8,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		
+		
+		
 		// Crear controladores como variables locales del main
 
 				ControladorCliente controladorCliente = new ControladorCliente();
@@ -31,6 +34,8 @@ public class Main {
 				GestionCliente gestionCliente = new GestionCliente(ventanaPrincipal, true);
 				gestionCliente.setControladorCliente(controladorCliente);
 				controladorCliente.setGestionCliente(gestionCliente);
+				
+				controladorCliente.setModeloCliente(modeloCliente);
 				
 				VerClientes verClientes = new VerClientes(gestionCliente, true);
 				controladorCliente.setVerClientes(verClientes);
