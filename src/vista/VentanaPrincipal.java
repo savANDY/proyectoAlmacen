@@ -71,8 +71,10 @@ public class VentanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		setTitle("Gesti\u00F3n Almac\u00E9n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 500);
+		setLocationRelativeTo(null);
 		setResizable(false);
 		
 		JButton btnClientes = new JButton("Clientes");
