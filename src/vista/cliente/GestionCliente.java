@@ -52,5 +52,16 @@ public class GestionCliente extends JDialog {
 		});
 		btnVerClientes.setBounds(40, 50, 117, 27);
 		contentPanel.add(btnVerClientes);
+		
+		JButton btnNuevoCliente = new JButton("Nuevo cliente");
+		btnNuevoCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorCliente.abrirNuevoCliente();
+				
+			}
+		});
+		btnNuevoCliente.setBounds(40, 88, 117, 27);
+		contentPanel.add(btnNuevoCliente);
 	}
 }

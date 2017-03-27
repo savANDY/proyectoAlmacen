@@ -39,8 +39,15 @@ public class Main {
 				
 				VerClientes verClientes = new VerClientes(gestionCliente, true);
 				controladorCliente.setVerClientes(verClientes);
+				
+				NuevoCliente nuevoCliente = new NuevoCliente (gestionCliente, true);
+				controladorCliente.setNuevoCliente(nuevoCliente);
+				
 				//abrir la ventana principal
 				ventanaPrincipal.setVisible(true);
+				
+				
+				
 				
 	}
 
