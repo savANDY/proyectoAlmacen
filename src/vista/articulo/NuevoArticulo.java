@@ -8,11 +8,24 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controlador.ControladorArticulo;
 import vista.VentanaPrincipal;
 
 public class NuevoArticulo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
+	
+	private ControladorArticulo controladorArticulo;
+
+	
+	// Getters y Setters
+	public ControladorArticulo getControladorArticulo() {
+		return controladorArticulo;
+	}
+
+	public void setControladorArticulo(ControladorArticulo controladorArticulo) {
+		this.controladorArticulo = controladorArticulo;
+	}
 
 	/**
 	 * Create the dialog.

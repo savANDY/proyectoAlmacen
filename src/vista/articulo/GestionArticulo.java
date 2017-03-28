@@ -42,7 +42,7 @@ public class GestionArticulo extends JDialog {
 		contentPanel.setLayout(null);
 		
 		JButton btnVerProductos = new JButton("Ver articulos");
-		btnVerProductos.setBounds(73, 53, 111, 23);
+		btnVerProductos.setBounds(73, 53, 136, 23);
 		contentPanel.add(btnVerProductos);
 		
 		JButton btnNuevoProducto = new JButton("Nuevo articulo");
@@ -53,7 +53,7 @@ public class GestionArticulo extends JDialog {
 				
 			}
 		});
-		btnNuevoProducto.setBounds(73, 87, 111, 23);
+		btnNuevoProducto.setBounds(73, 87, 136, 23);
 		contentPanel.add(btnNuevoProducto);
 	}
 

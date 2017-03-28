@@ -97,7 +97,7 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		
-		JButton btnProductos = new JButton("Productos");
+		JButton btnProductos = new JButton("Articulos");
 		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

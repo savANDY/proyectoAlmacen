@@ -50,8 +50,12 @@ public class Main {
 		
 		GestionArticulo gestionArticulo = new GestionArticulo(ventanaPrincipal, true);
 		gestionArticulo.setControladorArticulo(controladorArticulo);
-		controladorArticulo.setGestionArticulo(gestionArticulo);
 		
+		NuevoArticulo nuevoArticulo = new NuevoArticulo(gestionArticulo, true);
+		nuevoArticulo.setControladorArticulo(controladorArticulo);
+		
+		controladorArticulo.setGestionArticulo(gestionArticulo);
+		controladorArticulo.setNuevoArticulo(nuevoArticulo);
 		
 		
 		
