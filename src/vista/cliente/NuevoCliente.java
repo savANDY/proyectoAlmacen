@@ -131,6 +131,7 @@ public class NuevoCliente extends JDialog {
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
+						limpiarCampos();
 						setVisible(false);
 
 					}
@@ -139,5 +140,15 @@ public class NuevoCliente extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+	}
+
+	protected void limpiarCampos() {
+		
+		textoId.setText("");
+		textoNombre.setText("");
+		textoDireccion.setText("");
+		textoCodPostal.setText("");
+		textoTelefono.setText("");
+		
 	}
 }

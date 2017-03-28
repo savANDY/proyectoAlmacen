@@ -10,20 +10,22 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.*;
 import vista.VentanaPrincipal;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GestionArticulo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
-	private ControladorArticulo controladorProducto;
+	private ControladorArticulo controladorArticulo;
 
 	// Getters y Setters
 	public ControladorArticulo getControladorProducto() {
-		return controladorProducto;
+		return controladorArticulo;
 	}
 
 	public void setControladorArticulo(ControladorArticulo controladorProducto) {
-		this.controladorProducto = controladorProducto;
+		this.controladorArticulo = controladorProducto;
 	}
 
 	/**
@@ -32,18 +34,25 @@ public class GestionArticulo extends JDialog {
 	public GestionArticulo(VentanaPrincipal parent, boolean modal) {
 
 		super(parent, modal);
-		setTitle("Gestion de Productos");
+		setTitle("Gestion de Articulos");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JButton btnVerProductos = new JButton("Ver productos");
+		JButton btnVerProductos = new JButton("Ver articulos");
 		btnVerProductos.setBounds(73, 53, 111, 23);
 		contentPanel.add(btnVerProductos);
 		
-		JButton btnNuevoProducto = new JButton("Nuevo producto");
+		JButton btnNuevoProducto = new JButton("Nuevo articulo");
+		btnNuevoProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorArticulo.abrirNuevoArticulo();
+				
+			}
+		});
 		btnNuevoProducto.setBounds(73, 87, 111, 23);
 		contentPanel.add(btnNuevoProducto);
 	}

@@ -1,10 +1,12 @@
 package controlador;
 
 import vista.articulo.GestionArticulo;
+import vista.articulo.NuevoArticulo;
 
 public class ControladorArticulo {
 	
 	private GestionArticulo gestionArticulo;
+	private NuevoArticulo nuevoArticulo;
 	
 	
 	// Getters y Setters
@@ -23,6 +25,14 @@ public class ControladorArticulo {
 	public void abrirGestionArticulo() {
 		
 		gestionArticulo.setVisible(true);
+		
+	}
+
+
+
+	public void abrirNuevoArticulo() {
+		
+		nuevoArticulo.setVisible(true);
 		
 	}
 	
