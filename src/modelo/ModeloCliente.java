@@ -10,21 +10,20 @@ public class ModeloCliente extends Conectar {
 	public ModeloCliente() {
 		super();
 	}
-	
-	
+
 	public ArrayList<Cliente> seleccionarTodos() throws Exception {
 		PreparedStatement pst;
 		Cliente cliente;
-		
+
 		try {
 			pst = cn.prepareStatement("SELECT * FROM clientes");
-			
+
 			ResultSet rs = pst.executeQuery();// ejecuta
 
-			//pasar de ResultSet a ArrayList
-			
-			ArrayList<Cliente> clientes =new ArrayList<Cliente>();
-			while (rs.next()){
+			// pasar de ResultSet a ArrayList
+
+			ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+			while (rs.next()) {
 				cliente = new Cliente();
 
 				cliente.setId(rs.getString(1));
@@ -32,20 +31,19 @@ public class ModeloCliente extends Conectar {
 				cliente.setDireccion(rs.getString(3));
 				cliente.setCodPostal(rs.getString(4));
 				cliente.setTelefono(rs.getString(5));
-//				System.out.println(cliente.getNombre());
+				// System.out.println(cliente.getNombre());
 				clientes.add(cliente);
 			}
 			return clientes;
-			
+
 		} catch (Exception e) {
 			throw e;
 
-		} 
+		}
 	}
 
-
 	public void insertar(Cliente cliente) throws Exception {
-		
+
 		PreparedStatement pst;
 		try {
 			pst = cn.prepareStatement(

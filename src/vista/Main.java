@@ -2,7 +2,6 @@ package vista;
 
 import controlador.*;
 import modelo.*;
-import vista.*;
 import vista.articulo.*;
 import vista.cliente.*;
 
