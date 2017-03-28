@@ -1,4 +1,4 @@
-package vista.producto;
+package vista.articulo;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 import controlador.*;
 import vista.VentanaPrincipal;
 
-public class GestionProducto extends JDialog {
+public class GestionArticulo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -22,37 +22,30 @@ public class GestionProducto extends JDialog {
 		return controladorProducto;
 	}
 
-	public void setControladorProducto(ControladorArticulo controladorProducto) {
+	public void setControladorArticulo(ControladorArticulo controladorProducto) {
 		this.controladorProducto = controladorProducto;
 	}
 
 	/**
 	 * Create the dialog.
 	 */
-	public GestionProducto(VentanaPrincipal parent, boolean modal) {
+	public GestionArticulo(VentanaPrincipal parent, boolean modal) {
 
 		super(parent, modal);
+		setTitle("Gestion de Productos");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
+		contentPanel.setLayout(null);
+		
+		JButton btnVerProductos = new JButton("Ver productos");
+		btnVerProductos.setBounds(73, 53, 111, 23);
+		contentPanel.add(btnVerProductos);
+		
+		JButton btnNuevoProducto = new JButton("Nuevo producto");
+		btnNuevoProducto.setBounds(73, 87, 111, 23);
+		contentPanel.add(btnNuevoProducto);
 	}
 
 }

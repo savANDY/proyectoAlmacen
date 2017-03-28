@@ -27,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
 	private ControladorCliente controladorCliente;
 	private ControladorDetallesPedido controladorDetallesPedido;
 	private ControladorPedido controladorPedido;
-	private ControladorArticulo controladorProducto;
+	private ControladorArticulo controladorArticulo;
 	private final JLabel label = new JLabel("BackGround");
 
 	// Getters y Setters
@@ -59,12 +59,12 @@ public class VentanaPrincipal extends JFrame {
 		this.controladorPedido = controladorPedido;
 	}
 	
-	public ControladorArticulo getControladorProducto() {
-		return controladorProducto;
+	public ControladorArticulo getControladorArticulo() {
+		return controladorArticulo;
 	}
 
-	public void setControladorProducto(ControladorArticulo controladorProducto) {
-		this.controladorProducto = controladorProducto;
+	public void setControladorArticulo(ControladorArticulo controladorArticulo) {
+		this.controladorArticulo = controladorArticulo;
 	}
 
 	/**
@@ -98,6 +98,13 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnProductos = new JButton("Productos");
+		btnProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorArticulo.abrirGestionArticulo();
+				
+			}
+		});
 		btnProductos.setBounds(205, 303, 115, 115);
 		getContentPane().setLayout(null);
 		getContentPane().add(btnClientes);
@@ -122,4 +129,5 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 	}
+
 }

@@ -83,4 +83,14 @@ public class VerClientes extends JDialog {
 		TableRowSorter<DefaultTableModel> modeloOrdenado = new TableRowSorter<DefaultTableModel>(dtm);
 		tabla.setRowSorter(modeloOrdenado);
 	}
+
+	public ControladorCliente getControladorCliente() {
+		return controladorCliente;
+	}
+
+	public void setControladorCliente(ControladorCliente controladorCliente) {
+		this.controladorCliente = controladorCliente;
+	}
+
+	
 }

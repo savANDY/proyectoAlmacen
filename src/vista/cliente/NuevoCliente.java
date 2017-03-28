@@ -117,9 +117,6 @@ public class NuevoCliente extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
-						System.out.println(textoId.getText() + textoNombre.getText() + textoDireccion.getText()
-								+ textoCodPostal.getText() + textoTelefono.getText());
-
 						controladorCliente.insertarCliente(textoId.getText(), textoNombre.getText(),
 								textoDireccion.getText(), textoCodPostal.getText(), textoTelefono.getText());
 
@@ -133,6 +130,8 @@ public class NuevoCliente extends JDialog {
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+						setVisible(false);
 
 					}
 				});
