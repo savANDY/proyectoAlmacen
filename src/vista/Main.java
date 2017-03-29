@@ -23,9 +23,10 @@ public class Main {
 
 		VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
 		ventanaPrincipal.setControladorCliente(controladorCliente);
+		ventanaPrincipal.setControladorArticulo(controladorArticulo);
 		ventanaPrincipal.setControladorDetallesPedido(controladorDetallesPedido);
 		ventanaPrincipal.setControladorPedido(controladorPedido);
-		ventanaPrincipal.setControladorArticulo(controladorArticulo);
+		
 
 		// CLIENTE
 
@@ -33,7 +34,6 @@ public class Main {
 		GestionCliente gestionCliente = new GestionCliente(ventanaPrincipal, true);
 		gestionCliente.setControladorCliente(controladorCliente);
 		
-
 		VerClientes verClientes = new VerClientes(gestionCliente, true);
 		verClientes.setControladorCliente(controladorCliente);
 		
@@ -50,10 +50,15 @@ public class Main {
 		GestionArticulo gestionArticulo = new GestionArticulo(ventanaPrincipal, true);
 		gestionArticulo.setControladorArticulo(controladorArticulo);
 		
+		VerArticulos verArticulos = new VerArticulos(gestionArticulo, true);
+		verArticulos.setControladorArticulo(controladorArticulo);
+		
 		NuevoArticulo nuevoArticulo = new NuevoArticulo(gestionArticulo, true);
 		nuevoArticulo.setControladorArticulo(controladorArticulo);
 		
 		controladorArticulo.setGestionArticulo(gestionArticulo);
+		controladorArticulo.setModeloArticulo(modeloArticulo);
+		controladorArticulo.setVerArticulos(verArticulos);
 		controladorArticulo.setNuevoArticulo(nuevoArticulo);
 		
 		

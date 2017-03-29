@@ -25,7 +25,6 @@ public class NuevoCliente extends JDialog {
 	private JTextField textoCodPostal;
 	private JTextField textoTelefono;
 
-
 	private ControladorCliente controladorCliente;
 
 	// Getters y Setters
@@ -48,11 +47,11 @@ public class NuevoCliente extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
-				textoId = new JTextField();
-				textoId.setColumns(10);
-				textoId.setBounds(214, 39, 86, 20);
-				contentPanel.add(textoId);
+
+		textoId = new JTextField();
+		textoId.setColumns(10);
+		textoId.setBounds(214, 39, 86, 20);
+		contentPanel.add(textoId);
 
 		textoNombre = new JTextField();
 		textoNombre.setBounds(214, 70, 86, 20);
@@ -73,13 +72,13 @@ public class NuevoCliente extends JDialog {
 		textoTelefono.setColumns(10);
 		textoTelefono.setBounds(214, 163, 86, 20);
 		contentPanel.add(textoTelefono);
-		
-				JTextPane txtpnId = new JTextPane();
-				txtpnId.setEditable(false);
-				txtpnId.setText("Id");
-				txtpnId.setOpaque(false);
-				txtpnId.setBounds(137, 39, 67, 20);
-				contentPanel.add(txtpnId);
+
+		JTextPane txtpnId = new JTextPane();
+		txtpnId.setEditable(false);
+		txtpnId.setText("Id");
+		txtpnId.setOpaque(false);
+		txtpnId.setBounds(137, 39, 67, 20);
+		contentPanel.add(txtpnId);
 
 		JTextPane txtpnNombre = new JTextPane();
 		txtpnNombre.setEditable(false);
@@ -130,7 +129,7 @@ public class NuevoCliente extends JDialog {
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 						limpiarCampos();
 						setVisible(false);
 
@@ -143,12 +142,12 @@ public class NuevoCliente extends JDialog {
 	}
 
 	protected void limpiarCampos() {
-		
+
 		textoId.setText("");
 		textoNombre.setText("");
 		textoDireccion.setText("");
 		textoCodPostal.setText("");
 		textoTelefono.setText("");
-		
+
 	}
 }

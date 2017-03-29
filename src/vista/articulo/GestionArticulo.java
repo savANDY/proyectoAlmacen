@@ -42,6 +42,13 @@ public class GestionArticulo extends JDialog {
 		contentPanel.setLayout(null);
 		
 		JButton btnVerProductos = new JButton("Ver articulos");
+		btnVerProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorArticulo.abrirVerArticulos();
+				
+			}
+		});
 		btnVerProductos.setBounds(73, 53, 136, 23);
 		contentPanel.add(btnVerProductos);
 		
@@ -55,6 +62,16 @@ public class GestionArticulo extends JDialog {
 		});
 		btnNuevoProducto.setBounds(73, 87, 136, 23);
 		contentPanel.add(btnNuevoProducto);
+		
+		JButton btnModificarArticulo = new JButton("Modificar articulo");
+		btnModificarArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorArticulo.abrirModificarArticulo();
+				
+			}
+		});
+		btnModificarArticulo.setBounds(73, 121, 136, 23);
+		contentPanel.add(btnModificarArticulo);
 	}
-
 }

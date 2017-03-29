@@ -1,7 +1,8 @@
 package modelo;
 
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class ModeloArticulo extends Conectar {
 
@@ -9,11 +10,42 @@ public class ModeloArticulo extends Conectar {
 		super();
 	}
 
-	public void insertar(Articulo articulo) throws Exception {
+	public ArrayList<Articulo> seleccionarTodos() throws Exception {
+		PreparedStatement pst;
+		Articulo articulo;
 
+		try {
+			pst = cn.prepareStatement("SELECT * FROM articulos");
+
+			ResultSet rs = pst.executeQuery();// ejecuta
+
+			// pasar de ResultSet a ArrayList
+
+			ArrayList<Articulo> articulos = new ArrayList<Articulo>();
+			while (rs.next()) {
+				articulo = new Articulo();
+
+				articulo.setId(rs.getInt(1));
+				articulo.setNombre(rs.getString(2));
+				articulo.setProveedor(rs.getString(3));
+				articulo.setPrecio(rs.getDouble(4));
+				articulo.setExistencias(rs.getInt(5));
+				// System.out.println(cliente.getNombre());
+				articulos.add(articulo);
+			}
+			return articulos;
+
+		} catch (Exception e) {
+			throw e;
+
+		}
+	}
+	
+	public void insertar(Articulo articulo) throws Exception {
+		System.out.println("Estoy dentro del insertar en el modelo");
 		PreparedStatement pst;
 		try {
-			System.out.println("Estoy dentro del insertar en el modelo");
+			
 
 			pst = cn.prepareStatement(
 					"INSERT INTO ARTICULOS(id,nombre,proveedor,precio,existencias) VALUES (?,?,?,?,?)");

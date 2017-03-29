@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import modelo.*;
 import vista.articulo.*;
@@ -8,7 +10,7 @@ import vista.cliente.VerClientes;
 public class ControladorArticulo {
 
 	private GestionArticulo gestionArticulo;
-	//private VerArticulo verArticulo;
+	private VerArticulos verArticulos;
 	private NuevoArticulo nuevoArticulo;
 	private ModeloArticulo modeloArticulo;
 
@@ -19,13 +21,13 @@ public class ControladorArticulo {
 	
 	// Getters y Setters
 	
-//	public VerArticulos getVerArticulos() {
-//		return verArticulos;
-//	}
-//
-//	public void setVerClientes(VerClientes verClientes) {
-//		this.verArticulos = verClientes;
-//	}
+	public VerArticulos getVerArticulos() {
+		return verArticulos;
+	}
+
+	public void setVerArticulos(VerArticulos verArticulos) {
+		this.verArticulos = verArticulos;
+	}
 	
 	public GestionArticulo getGestionArticulo() {
 		return gestionArticulo;
@@ -58,6 +60,24 @@ public class ControladorArticulo {
 		gestionArticulo.setVisible(true);
 
 	}
+	
+	public void abrirVerArticulos() {
+
+		ArrayList<Articulo> articulos;
+
+		try {
+
+			articulos = modeloArticulo.seleccionarTodos();
+			verArticulos.rellenarTabla(articulos);
+
+			verArticulos.setVisible(true);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "ERROR AL SELECCIONAR ARTICULOS");
+			// e.printStackTrace();
+			// e.getMessage();
+		}
+	}
 
 	public void abrirNuevoArticulo() {
 
@@ -65,7 +85,7 @@ public class ControladorArticulo {
 
 	}
 
-	public void insertarArticulo(int id, String nombre, String proveedor, double precio, int existencias) {
+	public void insertarArticulo(int id, String nombre, String proveedor, Double precio, int existencias) {
 		
 		System.out.println("Estoy dentro del insertar en el controlador");
 		
@@ -91,8 +111,15 @@ public class ControladorArticulo {
 			JOptionPane.showMessageDialog(null, "ARTICULO INSERTADO EN LA BD");
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERROR AL INSERTAR ARTICULO");
-			e.printStackTrace();
+			e.getMessage();
+//			e.printStackTrace();
 		}
+		
+	}
+
+	public void abrirModificarArticulo() {
+		
+//		ModificarArticulo.setVisible(true);
 		
 	}
 

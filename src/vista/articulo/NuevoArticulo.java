@@ -117,7 +117,7 @@ public class NuevoArticulo extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 
 						System.out.println("Boton OK clickeado");
-						
+
 						controladorArticulo.insertarArticulo(Integer.parseInt(textoId.getText()), textoNombre.getText(),
 								textoProveedor.getText(), Double.parseDouble(textoPrecio.getText().toString()),
 								Integer.parseInt(textoExistencias.getText()));
@@ -130,9 +130,27 @@ public class NuevoArticulo extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+						limpiarCampos();
+						setVisible(false);
+
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
+	}
+
+	protected void limpiarCampos() {
+
+		textoId.setText("");
+		textoNombre.setText("");
+		textoProveedor.setText("");
+		textoPrecio.setText("");
+		textoExistencias.setText("");
+
 	}
 }
