@@ -155,4 +155,12 @@ public class ControladorArticulo {
 		
 	}
 
+	public void rellenarComboArticulos() {
+		
+ArrayList<Articulo> articulos = this.modeloArticulo.seleccionarTodos();
+		
+		this.modificarArticulo.rellenarComboArticulos(articulos);
+		
+	}
+
 }

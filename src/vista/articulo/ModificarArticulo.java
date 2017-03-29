@@ -142,7 +142,7 @@ public class ModificarArticulo extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 
 				limpiarCampos();
-
+				controladorArticulo.rellenarComboArticulos();
 			}
 		});
 		btnLimpiar.setBounds(291, 165, 98, 23);
@@ -189,11 +189,14 @@ public class ModificarArticulo extends JDialog {
 
 	protected void limpiarCampos() {
 
+		this.comboBoxArticulos.removeAllItems();
+		comboBoxArticulos.setModel(new DefaultComboBoxModel(new String[] { "Selecciona un art\u00EDculo..." }));
 		this.id.setText("");
 		this.nombre.setText("");
 		this.proveedor.setText("");
 		this.precio.setText("");
 		this.existencias.setText("");
+		
 
 	}
 

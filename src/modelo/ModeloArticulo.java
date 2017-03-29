@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class ModeloArticulo extends Conectar {
 
 	public ModeloArticulo() {
@@ -103,11 +105,12 @@ public class ModeloArticulo extends Conectar {
 		try {
 			Statement st = super.cn.createStatement();
 			lineascambiadas = st.executeUpdate("UPDATE articulos " + "SET nombre='" + articulo.getNombre() + "'" + ",proveedor='" + articulo.getProveedor() + "'"
-					+ ",precio='" + articulo.getPrecio() + "'" + ",existencias='" + articulo.getExistencias() + "'");
+					+ ",precio='" + articulo.getPrecio() + "'" + ",existencias='" + articulo.getExistencias() + "'" + " WHERE id=" + articulo.getId());
+			JOptionPane.showMessageDialog(null, "Articulo (" + articulo.getId() + ") modificado correctamente.");
 			return lineascambiadas;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error al modificar articulo", "Error",JOptionPane.ERROR_MESSAGE);
+//			e.printStackTrace();
 		}
 		return 0;
 		
