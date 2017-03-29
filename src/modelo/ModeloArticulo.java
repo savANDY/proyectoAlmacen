@@ -116,4 +116,26 @@ public class ModeloArticulo extends Conectar {
 		
 	}
 	
+	public int idMaximo() {
+		int idMaximo = 0;
+		
+		PreparedStatement pst;
+		try {
+			pst = cn.prepareStatement("SELECT max(id) as maxid FROM articulos");
+			
+			ResultSet rs = pst.executeQuery();
+
+			System.out.println(pst);
+			
+			if (rs.next()) {
+				idMaximo = rs.getInt("maxid");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idMaximo;
+	
+	}
+	
 }

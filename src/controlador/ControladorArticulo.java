@@ -9,11 +9,14 @@ import vista.cliente.VerClientes;
 
 public class ControladorArticulo {
 
+
 	private GestionArticulo gestionArticulo;
 	private VerArticulos verArticulos;
 	private NuevoArticulo nuevoArticulo;
 	private ModificarArticulo modificarArticulo;
 	private ModeloArticulo modeloArticulo;
+	
+	
 
 	// Constructor vacio
 	public ControladorArticulo() {
@@ -88,8 +91,10 @@ public class ControladorArticulo {
 	}
 
 	public void abrirNuevoArticulo() {
-
+		
+		nuevoArticulo.seleccionarMaxId();
 		nuevoArticulo.setVisible(true);
+
 
 	}
 
@@ -161,6 +166,11 @@ ArrayList<Articulo> articulos = this.modeloArticulo.seleccionarTodos();
 		
 		this.modificarArticulo.rellenarComboArticulos(articulos);
 		
+	}
+	
+	public int idMaximo() {
+		int idMaximo = modeloArticulo.idMaximo();
+		return idMaximo;
 	}
 
 }

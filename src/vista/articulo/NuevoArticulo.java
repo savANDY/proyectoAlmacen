@@ -86,6 +86,7 @@ public class NuevoArticulo extends JDialog {
 		contentPanel.add(txtpnExistencias);
 
 		textoId = new JTextField();
+		textoId.setEditable(false);
 		textoId.setBounds(216, 43, 86, 20);
 		contentPanel.add(textoId);
 		textoId.setColumns(10);
@@ -148,11 +149,17 @@ public class NuevoArticulo extends JDialog {
 
 	protected void limpiarCampos() {
 
-		textoId.setText("");
+		textoId.setText(String.valueOf(controladorArticulo.idMaximo() + 1));
 		textoNombre.setText("");
 		textoProveedor.setText("");
 		textoPrecio.setText("");
 		textoExistencias.setText("");
 
+	}
+
+	public void seleccionarMaxId() {
+
+		textoId.setText(String.valueOf(controladorArticulo.idMaximo() + 1));
+		
 	}
 }
