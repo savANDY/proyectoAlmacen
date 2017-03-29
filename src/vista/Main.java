@@ -1,5 +1,7 @@
 package vista;
 
+import javax.swing.UIManager;
+
 import controlador.*;
 import modelo.*;
 import vista.articulo.*;
@@ -8,6 +10,14 @@ import vista.cliente.*;
 public class Main {
 
 	public static void main(String[] args) {
+		
+//		para usar otro tema: "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"
+//		 try 
+//		    { 
+//		        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
+//		    } 
+//		    catch(Exception e){ 
+//		    }
 
 		// Crear controladores como variables locales del main
 
