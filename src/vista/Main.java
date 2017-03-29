@@ -56,10 +56,14 @@ public class Main {
 		NuevoArticulo nuevoArticulo = new NuevoArticulo(gestionArticulo, true);
 		nuevoArticulo.setControladorArticulo(controladorArticulo);
 		
+		ModificarArticulo modificarArticulo = new ModificarArticulo(gestionArticulo, true);
+		modificarArticulo.setControladorArticulo(controladorArticulo);
+		
 		controladorArticulo.setGestionArticulo(gestionArticulo);
 		controladorArticulo.setModeloArticulo(modeloArticulo);
 		controladorArticulo.setVerArticulos(verArticulos);
 		controladorArticulo.setNuevoArticulo(nuevoArticulo);
+		controladorArticulo.setModificarArticulo(modificarArticulo);
 		
 		
 		

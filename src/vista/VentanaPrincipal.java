@@ -1,23 +1,16 @@
 package vista;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.*;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.CardLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 
 public class VentanaPrincipal extends JFrame {

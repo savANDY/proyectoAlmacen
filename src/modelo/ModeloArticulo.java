@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModeloArticulo extends Conectar {
@@ -10,7 +12,7 @@ public class ModeloArticulo extends Conectar {
 		super();
 	}
 
-	public ArrayList<Articulo> seleccionarTodos() throws Exception {
+	public ArrayList<Articulo> seleccionarTodos(){
 		PreparedStatement pst;
 		Articulo articulo;
 
@@ -35,9 +37,9 @@ public class ModeloArticulo extends Conectar {
 			}
 			return articulos;
 
-		} catch (Exception e) {
-			throw e;
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -69,4 +71,46 @@ public class ModeloArticulo extends Conectar {
 
 	}
 
+	public Articulo select(int idArticulo) {
+		PreparedStatement ps;
+		Articulo articulo;
+		try {
+			ps = cn.prepareStatement("select * from articulos where id = ?");
+			ps.setInt(1, idArticulo);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				articulo = new Articulo();
+				articulo.setId(rs.getInt("id"));
+				articulo.setNombre(rs.getString("nombre"));
+				articulo.setProveedor(rs.getString("proveedor"));
+				articulo.setPrecio(rs.getDouble("precio"));
+				articulo.setExistencias(rs.getInt("existencias"));
+				return articulo;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public int modificar(Articulo articulo) {
+
+		int lineascambiadas;
+		try {
+			Statement st = super.cn.createStatement();
+			lineascambiadas = st.executeUpdate("UPDATE articulos " + "SET nombre='" + articulo.getNombre() + "'" + ",proveedor='" + articulo.getProveedor() + "'"
+					+ ",precio='" + articulo.getPrecio() + "'" + ",existencias='" + articulo.getExistencias() + "'");
+			return lineascambiadas;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+		
+	}
+	
 }

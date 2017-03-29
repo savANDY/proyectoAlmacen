@@ -12,6 +12,7 @@ public class ControladorArticulo {
 	private GestionArticulo gestionArticulo;
 	private VerArticulos verArticulos;
 	private NuevoArticulo nuevoArticulo;
+	private ModificarArticulo modificarArticulo;
 	private ModeloArticulo modeloArticulo;
 
 	// Constructor vacio
@@ -52,7 +53,14 @@ public class ControladorArticulo {
 	public void setNuevoArticulo(NuevoArticulo nuevoArticulo) {
 		this.nuevoArticulo = nuevoArticulo;
 	}
-	
+
+	public ModificarArticulo getModificarArticulo() {
+		return modificarArticulo;
+	}
+
+	public void setModificarArticulo(ModificarArticulo modificarArticulo) {
+		this.modificarArticulo = modificarArticulo;
+	}
 
 	// funciones
 	public void abrirGestionArticulo() {
@@ -119,7 +127,31 @@ public class ControladorArticulo {
 
 	public void abrirModificarArticulo() {
 		
-//		ModificarArticulo.setVisible(true);
+		ArrayList<Articulo> articulos = this.modeloArticulo.seleccionarTodos();
+		
+		this.modificarArticulo.rellenarComboArticulos(articulos);
+		modificarArticulo.setVisible(true);
+		
+	}
+
+	public void rellenarModificarArticulo(int idArticulo) {
+		
+		Articulo articulo = this.modeloArticulo.select(idArticulo);
+		this.modificarArticulo.rellenarCampos(articulo);
+		
+	}
+
+	public void modificarArticulo(int id, String nombre, String proveedor, String precio, String existencias) {
+		
+		Articulo articulo = new Articulo();
+		
+		articulo.setId(id);
+		articulo.setNombre(nombre);
+		articulo.setProveedor(proveedor);
+		articulo.setPrecio(Double.parseDouble(precio));
+		articulo.setExistencias(Integer.parseInt(existencias));
+		
+		modeloArticulo.modificar(articulo);
 		
 	}
 
