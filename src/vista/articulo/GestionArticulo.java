@@ -3,6 +3,7 @@ package vista.articulo;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -12,6 +13,10 @@ import controlador.*;
 import vista.VentanaPrincipal;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Component;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class GestionArticulo extends JDialog {
 
@@ -43,29 +48,51 @@ public class GestionArticulo extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(225, 47, 180, 160);
+		panel.setBorder(BorderFactory.createTitledBorder("Elige una opción"));
+		contentPanel.add(panel);
+		
 		JButton btnVerProductos = new JButton("Ver articulos");
-		btnVerProductos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				controladorArticulo.abrirVerArticulos();
-				
-			}
-		});
-		btnVerProductos.setBounds(73, 53, 136, 23);
-		contentPanel.add(btnVerProductos);
 		
 		JButton btnNuevoProducto = new JButton("Nuevo articulo");
-		btnNuevoProducto.addActionListener(new ActionListener() {
+		
+		JButton btnModificarArticulo = new JButton("Modificar articulo");
+		
+		JButton btnBorrarArticulo = new JButton("Borrar articulo");
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnVerProductos, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+						.addComponent(btnNuevoProducto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnModificarArticulo, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+						.addComponent(btnBorrarArticulo, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(4)
+					.addComponent(btnVerProductos)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnNuevoProducto)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnModificarArticulo)
+					.addGap(5)
+					.addComponent(btnBorrarArticulo)
+					.addContainerGap())
+		);
+		panel.setLayout(gl_panel);
+		btnBorrarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				controladorArticulo.abrirNuevoArticulo();
+				controladorArticulo.abrirBorrarArticulo();
 				
 			}
 		});
-		btnNuevoProducto.setBounds(73, 87, 136, 23);
-		contentPanel.add(btnNuevoProducto);
-		
-		JButton btnModificarArticulo = new JButton("Modificar articulo");
 		btnModificarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -73,7 +100,19 @@ public class GestionArticulo extends JDialog {
 				
 			}
 		});
-		btnModificarArticulo.setBounds(73, 121, 136, 23);
-		contentPanel.add(btnModificarArticulo);
+		btnNuevoProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorArticulo.abrirNuevoArticulo();
+				
+			}
+		});
+		btnVerProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorArticulo.abrirVerArticulos();
+				
+			}
+		});
 	}
 }

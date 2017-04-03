@@ -69,11 +69,15 @@ public class Main {
 		ModificarArticulo modificarArticulo = new ModificarArticulo(gestionArticulo, true);
 		modificarArticulo.setControladorArticulo(controladorArticulo);
 		
+		BorrarArticulo borrarArticulo = new BorrarArticulo(gestionArticulo, true);
+		borrarArticulo.setControladorArticulo(controladorArticulo);
+		
 		controladorArticulo.setGestionArticulo(gestionArticulo);
 		controladorArticulo.setModeloArticulo(modeloArticulo);
 		controladorArticulo.setVerArticulos(verArticulos);
 		controladorArticulo.setNuevoArticulo(nuevoArticulo);
 		controladorArticulo.setModificarArticulo(modificarArticulo);
+		controladorArticulo.setBorrarArticulo(borrarArticulo);
 		
 		
 		

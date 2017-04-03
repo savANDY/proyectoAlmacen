@@ -15,8 +15,11 @@ public class ControladorArticulo {
 	private NuevoArticulo nuevoArticulo;
 	private ModificarArticulo modificarArticulo;
 	private ModeloArticulo modeloArticulo;
+	private BorrarArticulo borrarArticulo;
 	
 	
+
+
 
 	// Constructor vacio
 	public ControladorArticulo() {
@@ -63,6 +66,14 @@ public class ControladorArticulo {
 
 	public void setModificarArticulo(ModificarArticulo modificarArticulo) {
 		this.modificarArticulo = modificarArticulo;
+	}
+	
+	public BorrarArticulo getBorrarArticulo() {
+		return borrarArticulo;
+	}
+
+	public void setBorrarArticulo(BorrarArticulo borrarArticulo) {
+		this.borrarArticulo = borrarArticulo;
 	}
 
 	// funciones
@@ -171,6 +182,12 @@ ArrayList<Articulo> articulos = this.modeloArticulo.seleccionarTodos();
 	public int idMaximo() {
 		int idMaximo = modeloArticulo.idMaximo();
 		return idMaximo;
+	}
+
+	public void abrirBorrarArticulo() {
+		
+		borrarArticulo.setVisible(true);
+		
 	}
 
 }
