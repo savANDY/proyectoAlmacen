@@ -6,6 +6,8 @@ import controlador.*;
 import modelo.*;
 import vista.articulo.*;
 import vista.cliente.*;
+import vista.pedido.GestionPedido;
+import vista.pedido.VerPedidos;
 
 public class Main {
 
@@ -79,6 +81,16 @@ public class Main {
 		controladorArticulo.setModificarArticulo(modificarArticulo);
 		controladorArticulo.setBorrarArticulo(borrarArticulo);
 		
+		// PEDIDOS
+		GestionPedido gestionPedido = new GestionPedido(ventanaPrincipal, true);
+		gestionPedido.setControladorPedido(controladorPedido);
+		
+		VerPedidos verPedidos = new VerPedidos(gestionPedido, true);
+		verPedidos.setControladorPedido(controladorPedido);
+		
+		
+		controladorPedido.setGestionPedido(gestionPedido);
+		controladorPedido.setVerPedidos(verPedidos);
 		
 		
 

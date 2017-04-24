@@ -81,6 +81,13 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnPedidos = new JButton("Pedidos");
+		btnPedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				controladorPedido.abrirGestionPedido();
+				
+			}
+		});
 		btnPedidos.setBounds(80, 177, 115, 115);
 		
 		JButton btnDetallespedidos = new JButton("DetallesPedidos");

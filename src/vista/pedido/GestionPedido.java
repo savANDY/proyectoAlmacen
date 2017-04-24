@@ -23,14 +23,23 @@ public class GestionPedido extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 
 	private ControladorArticulo controladorArticulo;
+	private ControladorPedido controladorPedido;
 
 	// Getters y Setters
-	public ControladorArticulo getControladorProducto() {
+	public ControladorArticulo getControladorArticulo() {
 		return controladorArticulo;
 	}
 
 	public void setControladorArticulo(ControladorArticulo controladorProducto) {
 		this.controladorArticulo = controladorProducto;
+	}
+
+	public ControladorPedido getControladorPedido() {
+		return controladorPedido;
+	}
+
+	public void setControladorPedido(ControladorPedido controladorPedido) {
+		this.controladorPedido = controladorPedido;
 	}
 
 	/**
@@ -47,72 +56,64 @@ public class GestionPedido extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(225, 47, 180, 160);
 		panel.setBorder(BorderFactory.createTitledBorder("Elige una opción"));
 		contentPanel.add(panel);
-		
-		JButton btnVerProductos = new JButton("Ver articulos");
-		
-		JButton btnNuevoProducto = new JButton("Nuevo articulo");
-		
-		JButton btnModificarArticulo = new JButton("Modificar articulo");
-		
-		JButton btnBorrarArticulo = new JButton("Borrar articulo");
+
+		JButton btnVerProductos = new JButton("Ver pedidos");
+
+		JButton btnNuevoProducto = new JButton("Nuevo pedido");
+
+		JButton btnModificarArticulo = new JButton("Modificar pedido");
+
+		JButton btnBorrarArticulo = new JButton("Borrar pedido");
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnVerProductos, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-						.addComponent(btnNuevoProducto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnModificarArticulo, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-						.addComponent(btnBorrarArticulo, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
-					.addContainerGap())
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(4)
-					.addComponent(btnVerProductos)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNuevoProducto)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnModificarArticulo)
-					.addGap(5)
-					.addComponent(btnBorrarArticulo)
-					.addContainerGap())
-		);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnVerProductos, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+								.addComponent(btnNuevoProducto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+										Short.MAX_VALUE)
+								.addComponent(btnModificarArticulo, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+								.addComponent(btnBorrarArticulo, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
+						.addContainerGap()));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addGap(4).addComponent(btnVerProductos)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNuevoProducto)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnModificarArticulo).addGap(5)
+						.addComponent(btnBorrarArticulo).addContainerGap()));
 		panel.setLayout(gl_panel);
 		btnBorrarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				controladorArticulo.abrirBorrarArticulo();
-				
+
 			}
 		});
 		btnModificarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				controladorArticulo.abrirModificarArticulo();
-				
+
 			}
 		});
 		btnNuevoProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				controladorArticulo.abrirNuevoArticulo();
-				
+
 			}
 		});
 		btnVerProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				
-				controladorArticulo.abrirVerArticulos();
-				
+				controladorPedido.abrirVerPedidos();
+
 			}
 		});
 	}
+
 }
