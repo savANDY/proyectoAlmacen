@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ModeloPedido extends Conectar {
 
-	public ArrayList<Pedido> seleccionarTodos() {
+	public ArrayList<Pedido> seleccionarTodos() throws SQLException {
 		
 		PreparedStatement pst;
 		Pedido pedido;
@@ -33,8 +33,8 @@ public class ModeloPedido extends Conectar {
 			return pedidos;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
+			throw e;
+			//return null;
 		}
 	}
 

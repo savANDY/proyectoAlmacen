@@ -48,9 +48,9 @@ public class VerPedidos extends JDialog {
 	public VerPedidos(GestionPedido parent, boolean modal) {
 
 		super(parent, modal);
-		setTitle("Todos los articulos");
+		setTitle("Todos los pedidos");
 		{
-			setBounds(100, 100, 600, 300);
+			setBounds(100, 100, 800, 480);
 			getContentPane().setLayout(new BorderLayout());
 			contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 			getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -60,18 +60,18 @@ public class VerPedidos extends JDialog {
 		// Texto "Articulos: "
 		JTextPane txtpnClientes = new JTextPane();
 		txtpnClientes.setEditable(false);
-		txtpnClientes.setText("Articulos:");
+		txtpnClientes.setText("Pedidos:");
 		txtpnClientes.setBounds(31, 24, 77, 20);
 		txtpnClientes.setOpaque(false);
 		contentPanel.add(txtpnClientes);
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(30, 47, 520, 2);
+		separator.setBounds(30, 47, 350, 2);
 		contentPanel.add(separator);
 
 		// Tabla información Clientes
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(30, 60, 520, 180);
+		scrollPane_1.setBounds(30, 60, 350, 180);
 		contentPanel.add(scrollPane_1);
 
 		tabla = new JTable();
@@ -80,13 +80,28 @@ public class VerPedidos extends JDialog {
 		
 		scrollPane_1.setViewportView(tabla);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(413, 60, 350, 180);
+		contentPanel.add(scrollPane);
+		
+		JTextPane txtpnDetalles = new JTextPane();
+		txtpnDetalles.setText("Detalles:");
+		txtpnDetalles.setOpaque(false);
+		txtpnDetalles.setEditable(false);
+		txtpnDetalles.setBounds(414, 24, 77, 20);
+		contentPanel.add(txtpnDetalles);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(413, 47, 350, 2);
+		contentPanel.add(separator_1);
+		
 	}
 
 	public void rellenarTabla(ArrayList<Pedido> pedidos) {
 		// cargar la tabla
 		DefaultTableModel dtm = new DefaultTableModel();
 
-		String[] encabezados = { "ID", "NOMBRE", "PROVEEDOR", "PRECIO", "EXISTENCIAS" };
+		String[] encabezados = { "ID Pedido", "ID Cliente", "Fecha", "Cod. Postal" };
 
 		dtm.setColumnIdentifiers(encabezados);
 		for (Pedido pedido : pedidos) {

@@ -90,7 +90,9 @@ public class Main {
 		
 		
 		controladorPedido.setGestionPedido(gestionPedido);
+		controladorPedido.setModeloPedido(modeloPedido);
 		controladorPedido.setVerPedidos(verPedidos);
+		
 		
 		
 

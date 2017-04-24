@@ -34,6 +34,14 @@ public class ControladorPedido {
 	public void setVerPedidos(VerPedidos verPedidos) {
 		this.verPedidos = verPedidos;
 	}
+	
+	public ModeloPedido getModeloPedido() {
+		return modeloPedido;
+	}
+
+	public void setModeloPedido(ModeloPedido modeloPedido) {
+		this.modeloPedido = modeloPedido;
+	}
 
 	public void abrirVerPedidos() {
 		

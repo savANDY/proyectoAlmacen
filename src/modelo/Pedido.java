@@ -26,7 +26,7 @@ public class Pedido {
 		return idCliente;
 	}
 
-	public void setIdCliente(String id_cliente) {
+	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
 	}
 
