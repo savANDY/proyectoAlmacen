@@ -52,7 +52,7 @@ public class ModeloArticulo extends Conectar {
 			
 
 			pst = cn.prepareStatement(
-					"INSERT INTO ARTICULOS(id,nombre,proveedor,precio,existencias) VALUES (?,?,?,?,?)");
+					"INSERT INTO articulos(id,nombre,proveedor,precio,existencias) VALUES (?,?,?,?,?)");
 
 			pst.setInt(1, articulo.getId());
 			pst.setString(2, articulo.getNombre());
