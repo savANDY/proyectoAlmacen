@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Pedido {
@@ -8,6 +9,9 @@ public class Pedido {
 	private String id_cliente;
 	private Date fecha;
 	private String codPostal;
+	
+	private ArrayList<DetallesPedido> detallesPedido;  // tiene N DetallesPedido  
+	private Cliente cliente; // LO HACE 1 CLIENTE
 
 	// Getters y Setters
 	public int getId() {

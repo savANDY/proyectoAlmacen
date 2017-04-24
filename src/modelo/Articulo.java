@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Articulo {
 
 	private int id;
@@ -7,6 +9,8 @@ public class Articulo {
 	private String proveedor;
 	private double precio;
 	private int existencias;
+	
+	private ArrayList<Pedido> pedidos; // hace N pedidos
 
 	// Getters y Setters
 	public int getId() {
@@ -47,6 +51,14 @@ public class Articulo {
 
 	public void setExistencias(int existencias) {
 		this.existencias = existencias;
+	}
+		
+	public ArrayList<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(ArrayList<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	// Constructor
